@@ -5,17 +5,18 @@ repositories {
 }
 
 dependencies {
-    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.39'
-    compile 'org.postgresql:postgresql:9.3-1102-jdbc41'
+    compile files('libs/mysql-connector-java-5.1.39.jar')
+    compile files('libs/postgresql-9.3-1102-jdbc41.jar')
     compile files('libs/ojdbc7.jar')
-    
+    compile files('libs/mssql-jdbc-6.1.0.jre8.jar')
+    compile files('libs/hive-jdbc-2.3.3.jar')
+    compile files('libs/hive-service-2.3.3.jar')
 }
 
 
 task fatJar(type: Jar) {
 	manifest {
         attributes 'Implementation-Title': 'Gradle Jar File Example',  
-        	
         	'Main-Class': 'com.main.Main'
     }
     baseName = project.name

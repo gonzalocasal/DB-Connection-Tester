@@ -6,6 +6,8 @@ import java.sql.SQLException;
 
 public class Main {
 
+	private static final String FAILED = "CONNECTION FAILED";
+	private static final String SUCCESS = "CONNECTION SUCCESS";
 	private static final String ERROR = "ERROR TRYING TO CONNECT";
 
 	private static final String MYSQL = "MySql";
@@ -16,13 +18,17 @@ public class Main {
 	private static final String JDBC_ORACLE = "jdbc:oracle:thin:@";
 	private static final String JDBC_ORACLE_DRIVER = "oracle.jdbc.driver.OracleDriver";
 	
+	private static final String MSSQL = "mssql";
+	private static final String JDBC_MSSQL = "jdbc:sqlserver://";
+	private static final String JDBC_MSSQL_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	
 	private static final String POSTGRE = "postgre";
 	private static final String JDBC_POSTGRE = "jdbc:postgresql://";
 	private static final String JDBC_POSTGRE_DRIVER = "org.postgresql.Driver";
 	
 	private static final String HIVE1 = "hive1";
 	private static final String JDBC_HIVE = "jdbc:hive://";
-	private static final String JDBC_HIVE_DRIVER = "org.apache.hadoop.hive.jdbc.HiveDriver";
+	private static final String JDBC_HIVE_DRIVER = "org.apache.hive.jdbc.HiveDriver";
 	
 	private static final String HIVE2 = "hive2";
 	private static final String JDBC_HIVE2 = "jdbc:hive2://";
@@ -48,6 +54,11 @@ public class Main {
 				connection = connect(JDBC_ORACLE,host,user,pass);
 			}
 			
+			if(MSSQL.equalsIgnoreCase(driver)) {
+				registerDriver(JDBC_MSSQL_DRIVER);
+				connection = connect(JDBC_MSSQL,host,user,pass);
+			}
+			
 			if(POSTGRE.equalsIgnoreCase(driver)) {
 				registerDriver(JDBC_POSTGRE_DRIVER);
 				connection = connect(JDBC_POSTGRE,host,user,pass);
@@ -63,7 +74,7 @@ public class Main {
 				connection =  connect(JDBC_HIVE2,host,user,pass);
 			}
 			
-			String result = (connection != null) ? "SUCCESS" : "FAILED";
+			String result = (connection != null) ? SUCCESS : FAILED;
 			System.out.println(result);
 	
 	}
@@ -79,7 +90,7 @@ public class Main {
 	private static Connection connect(String jdbc, String host, String user, String pass) {
 		Connection connection = null;
 		try {
-			System.out.println("Connecting to: "+jdbc + host + " with credentials USER: "+user+" PASS: "+pass);
+			System.out.println("Connecting to: "+jdbc + host);
 			connection = DriverManager.getConnection(jdbc + host,user, pass);
 		} catch (SQLException e) {
 			e.printStackTrace();
