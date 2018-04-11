@@ -1,4 +1,4 @@
-# DB Connection Tester Tool
+# DB Connection Tester
 Tool to make a quick connection tests trough CLI on the leading DBMS Platforms. The connections are established through JDBC, so Java is required on the client computer.
 
 
