@@ -3,9 +3,9 @@ Tool to make a quick connection test on the leading DBMS Platforms, using JDBC C
 
 
 
-# DOWNLOAD
+
  
- https://github.com/gonzalocasal/DB-Connection-Tester-Tool/raw/master/DBCTest.jar
+# [DOWNLOAD](https://github.com/gonzalocasal/DB-Connection-Tester-Tool/raw/master/DBCTest.jar) 
 
 # BUILD
 
@@ -14,9 +14,10 @@ Tool to make a quick connection test on the leading DBMS Platforms, using JDBC C
 This Gradle task will build the jar including all the drivers
 
 
-# EXECUTION EXAMPLES
+# USAGE
+```java -jar DBCTest.jar <DBMS> <host> <user> <password>```
 
-USAGE: ```java -jar DBCTest.jar <driver> <host> <user> <password>```
+# EXAMPLES
 
 MySQL: ```java -jar DBCTest.jar mysql 192.168.1.196:3306/TestDB dbuser dbpass```
 
@@ -26,4 +27,5 @@ PostreSQL: ```java -jar DBCTest.jar postgre 192.168.1.196:5432/TestDB?sslmode=re
 
 MSSQL: ```java -jar DBCTest.jar mssql "192.168.1.196:1433;databaseName=TestDB" dbuser dbpass```
 
+*cuotes are required if in one of the arguments the char ; is used.
 
