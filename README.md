@@ -27,5 +27,5 @@ PostreSQL: ```java -jar DBCTest.jar postgre 192.168.1.196:5432/TestDB?sslmode=re
 
 MSSQL: ```java -jar DBCTest.jar mssql "192.168.1.196:1433;databaseName=TestDB" dbuser dbpass```
 
-*cuotes are required if in one of the arguments the char ; is used.
+*cuotes are required if in one of the arguments uses ; char. Like MSSQL example.
 
