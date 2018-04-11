@@ -1,8 +1,8 @@
-# DB-Tester Tool
-Tool to make a quick connection test on the leading DBMS Platforms, using JDBC Connections. Java is required to execute the tool.
+# DB Connection Tester Tool
+Tool to make a quick connection tests trough CLI on the leading DBMS Platforms. The connections are established through JDBC, so Java is required on the client computer.
 
 
-
+![](https://k62.kn3.net/D/E/D/2/0/9/E0A.png)
 
  
 # [DOWNLOAD](https://github.com/gonzalocasal/DB-Connection-Tester-Tool/raw/master/DBCTest.jar) 
@@ -14,7 +14,7 @@ Tool to make a quick connection test on the leading DBMS Platforms, using JDBC C
 This Gradle task will build the jar including all the drivers
 
 
-# USAGE
+# HOT TO RUN IT
 ```java -jar DBCTest.jar <DBMS> <host> <user> <password>```
 
 # EXAMPLES
